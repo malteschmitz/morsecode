@@ -104,7 +104,7 @@
   level 5/.style={
     sibling distance=\basicdistance
   },
-  level distance=3em
+  level distance=3.5em
 }
 
 \newcommand{\dit}{{\LARGE\hskip1pt$\cdot$\hskip1pt}}
@@ -170,7 +170,7 @@
       \setlength{\parskip}{.5\baselineskip}
       \subsection{Buchstaben}
       
-      \begin{tabular}{ll}
+      \begin{tabular}{@{}ll}
         A & \dit \dah \\
         B & \dah \dit \dit \dit \\
         C &	\dah \dit \dah \dit \\
@@ -204,7 +204,7 @@
       \setlength{\parskip}{.5\baselineskip}
       \subsection{Ziffern}
 
-      \begin{tabular}{ll}
+      \begin{tabular}{@{}ll}
         0 &	\dah \dah \dah \dah \dah \\
         1	&	\dit \dah \dah \dah \dah \\
         2	&	\dit \dit \dah \dah \dah \\
@@ -222,7 +222,7 @@
       \setlength{\parskip}{.5\baselineskip}
       \subsection{Satzzeichen}
 
-      \begin{tabular}{lll}
+      \begin{tabular}{@{}lll}
         . & (AAA) &	\dit \dah \dit \dah \dit \dah \\
         , & (MIM) &	\dah \dah \dit \dit \dah \dah \\
         : & (OS)  &	\dah \dah \dah \dit \dit \dit \\
@@ -262,118 +262,119 @@
     und für jeden Punkt zum unteren Kindknoten (gepunktete Kante) bis zum
     Ende des Codewortes. 
     
-    \begin{center}
-      \begin{tikzpicture}[thick]
-        \node[state] (start) {}
-           child[dashed] { node[state] {T}
-             child[dashed] { node[state] {M}
-               child[dashed] { node[state] {G}
-                 child[dashed] { node[state] {Q} }
-                 child[dotted] { node[state] {Z}
+    \vskip2\baselineskip
+    
+    \hskip5em
+    \begin{tikzpicture}[thick]
+      \node[state] (start) {}
+         child[dashed] { node[state] {T}
+           child[dashed] { node[state] {M}
+             child[dashed] { node[state] {G}
+               child[dashed] { node[state] {Q} }
+               child[dotted] { node[state] {Z}
+                 child { node[coordinate] {} edge from parent[draw=none] }
+                 child[dotted] { node[state] {7}
                    child { node[coordinate] {} edge from parent[draw=none] }
-                   child[dotted] { node[state] {7}
-                     child { node[coordinate] {} edge from parent[draw=none] }
-                     child[dotted] { node[state] {:} }
-                   }
-                 }
-               }
-               child[dotted] { node[state] {O}
-                 child[dashed] { node[empty] {}
-                   child[dashed] { node[state] {0} }
-                   child[dotted] { node[state] {9} }
-                 }
-                 child[dotted] { node[empty] {}
-                   child[dashed] { node[empty] {}
-                     child[dashed] {node[state] {,}}
-                     child { node[coordinate] {} edge from parent[draw=none] }
-                   }
-                   child[dotted] { node[state] {8} }
+                   child[dotted] { node[state] {:} }
                  }
                }
              }
-             child[dotted] { node[state] {N}
-               child[dashed] { node[state] {K}
-                 child[dashed] { node[state] {Y}
+             child[dotted] { node[state] {O}
+               child[dashed] { node[empty] {}
+                 child[dashed] { node[state] {0} }
+                 child[dotted] { node[state] {9} }
+               }
+               child[dotted] { node[empty] {}
+                 child[dashed] { node[empty] {}
+                   child[dashed] {node[state] {,}}
                    child { node[coordinate] {} edge from parent[draw=none] }
-                   child[dotted] { node[state] {(}
-                     child[dashed] { node[state] {)} }
-                     child { node[coordinate] {} edge from parent[draw=none] }
-                   }
                  }
-                 child[dotted] { node[state] {C}
-                   child[dashed] { node[empty] {}
-                     child { node[coordinate] {} edge from parent[draw=none] }
-                     child[dotted] { node[state] {;} }
-                   }
+                 child[dotted] { node[state] {8} }
+               }
+             }
+           }
+           child[dotted] { node[state] {N}
+             child[dashed] { node[state] {K}
+               child[dashed] { node[state] {Y}
+                 child { node[coordinate] {} edge from parent[draw=none] }
+                 child[dotted] { node[state] {(}
+                   child[dashed] { node[state] {)} }
                    child { node[coordinate] {} edge from parent[draw=none] }
                  }
                }
-               child[dotted] { node[state] {D}
-                 child[dashed] { node[state] {X}
+               child[dotted] { node[state] {C}
+                 child[dashed] { node[empty] {}
                    child { node[coordinate] {} edge from parent[draw=none] }
-                   child[dotted] { node[state] {/}
-                     child[dashed] { node[state] {@} }
-                     child { node[coordinate] {} edge from parent[draw=none] }
-                   }
+                   child[dotted] { node[state] {;} }
                  }
-                 child[dotted] { node[state] {B}
-                   child[dashed] { node[state] {=} }
-                   child[dotted] { node[state] {6}
-                     child[dashed] { node[state] {-} }
-                     child { node[coordinate] {} edge from parent[draw=none] }
-                   }
+                 child { node[coordinate] {} edge from parent[draw=none] }
+               }
+             }
+             child[dotted] { node[state] {D}
+               child[dashed] { node[state] {X}
+                 child { node[coordinate] {} edge from parent[draw=none] }
+                 child[dotted] { node[state] {/}
+                   child[dashed] { node[state] {@} }
+                   child { node[coordinate] {} edge from parent[draw=none] }
+                 }
+               }
+               child[dotted] { node[state] {B}
+                 child[dashed] { node[state] {=} }
+                 child[dotted] { node[state] {6}
+                   child[dashed] { node[state] {-} }
+                   child { node[coordinate] {} edge from parent[draw=none] }
                  }
                }
              }
            }
-           child[dotted] { node[state] {E}
-             child[dashed] { node[state] {A}
-               child[dashed] { node[state] {W}
-                 child[dashed] { node[state] {J}
-                   child[dashed] { node[state] {1} }
-                   child { node[coordinate] {} edge from parent[draw=none] }
-                 }
-                 child[dotted] { node[state] {P} }
+         }
+         child[dotted] { node[state] {E}
+           child[dashed] { node[state] {A}
+             child[dashed] { node[state] {W}
+               child[dashed] { node[state] {J}
+                 child[dashed] { node[state] {1} }
+                 child { node[coordinate] {} edge from parent[draw=none] }
                }
-               child[dotted] { node[state] {R}
-                 child[dashed] { node[empty] {}
+               child[dotted] { node[state] {P} }
+             }
+             child[dotted] { node[state] {R}
+               child[dashed] { node[empty] {}
+                 child { node[coordinate] {} edge from parent[draw=none] }
+                 child[dotted] { node[state] {+}
+                   child[dashed] { node[state] {.} }
                    child { node[coordinate] {} edge from parent[draw=none] }
-                   child[dotted] { node[state] {+}
-                     child[dashed] { node[state] {.} }
-                     child { node[coordinate] {} edge from parent[draw=none] }
-                   }
                  }
-                 child[dotted] { node[state] {L} }
+               }
+               child[dotted] { node[state] {L} }
+             }
+           }
+           child[dotted] { node[state] {I}
+             child[dashed] { node[state] {U}
+               child[dashed] { node[empty] {}
+                 child[dashed] { node[state] {2} }
+                 child[dotted] { node[empty] {}
+                   child[dashed] { node[state] {\_} }
+                   child[dotted] { node[state] {?} }
+                 }
+               }
+               child[dotted] { node[state] {F} }
+             }
+             child[dotted] { node[state] {S}
+               child[dashed] { node[state] {V}
+                 child[dashed] { node[state] {3} }
+                 child { node[coordinate] {} edge from parent[draw=none] }
+               }
+               child[dotted] { node[state] {H}
+                 child[dashed] { node[state] {4} }
+                 child[dotted] { node[state] {5} }
                }
              }
-             child[dotted] { node[state] {I}
-               child[dashed] { node[state] {U}
-                 child[dashed] { node[empty] {}
-                   child[dashed] { node[state] {2} }
-                   child[dotted] { node[empty] {}
-                     child[dashed] { node[state] {\_} }
-                     child[dotted] { node[state] {?} }
-                   }
-                 }
-                 child[dotted] { node[state] {F} }
-               }
-               child[dotted] { node[state] {S}
-                 child[dashed] { node[state] {V}
-                   child[dashed] { node[state] {3} }
-                   child { node[coordinate] {} edge from parent[draw=none] }
-                 }
-                 child[dotted] { node[state] {H}
-                   child[dashed] { node[state] {4} }
-                   child[dotted] { node[state] {5} }
-                 }
-               }
-             }
-           };
-        \node[left=1.5em of start] (startlabel) {start};
-        \draw
-          (startlabel) edge[->] (start);
-      \end{tikzpicture}
-    \end{center}
+           }
+         };
+      \node[left=1.5em of start] (startlabel) {start};
+      \draw
+        (startlabel) edge[->] (start);
+    \end{tikzpicture}
     
     \newpage
     
@@ -396,7 +397,7 @@
     Funker schaffen über 50 WpM. Der Weltrekord in Schnelltelegrafie
     aus dem Jahre 1954 liegt bei 88 WpM.
     
-    \begin{tabular}{llll}
+    \begin{tabular}{@{}llll}
       \bfseries WpM & \bfseries BpM & \bfseries Punkt \\
       5 & 25 & 240 ms \\
       12 & 60 & 100 ms \\
@@ -428,7 +429,7 @@
       besteht auf den folgenden Frequenzen
       
       \begin{large}\bfseries
-        \begin{tabular}{ll}
+        \begin{tabular}{@{}ll}
           2m FM & 145,425 MHz \\
           70cm FM & 430,100 MHz
         \end{tabular}
@@ -446,7 +447,7 @@
         \href{mailto:dk0ru@qsl.net}{dk0ru@qsl.net}
       \end{large}
       
-      \subsection{Internet}
+      \subsection{Website}
       \pgfimage[width=.3\textwidth]{qr-m21-website.pdf}
       \hskip.03\textwidth
       \begin{minipage}[t]{.67\textwidth}
