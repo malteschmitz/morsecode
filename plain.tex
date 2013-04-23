@@ -51,9 +51,13 @@
 \ohead{\pagemark}
 %% optional arguments of \ihead and \ohead in [] is used at pagestyle plain
 %% (e.g. at starting new chapters.)
-\setkomafont{pagehead}{\scriptsize}
-\setkomafont{pagenumber}{\scriptsize}
+\setkomafont{pagehead}{\normalsize}
+\setkomafont{pagenumber}{\normalsize}
 \setheadsepline{1pt}[\color{maincolor}]
+
+% add maincolor to section layout
+\addtokomafont{section}{\color{maincolor}}
+\addtokomafont{subsection}{\color{maincolor}}
 
 \usepackage{hyperref}
 \hypersetup{breaklinks=true,
@@ -123,8 +127,8 @@
 
   \section{Geschichte}
     Samuel Morse testete 1837 die erste Morsetaste. Dabei verwendete er
-    einen Code der nur die zehn Ziffern kodieren konnte. Der erste Code, 
-    mit dem auch Buchstabend kodiert werden können, wurde ein Jahr später
+    einen Code der nur die zehn Ziffern codieren konnte. Der erste Code, 
+    mit dem auch Buchstabend codiert werden können, wurde ein Jahr später
     von Alfred Lewis Vail, einem Mitarbeiter Morses, entwickelt.
     Dieser Code wurde als Morse Landline Code oder
     American Morse Code bei amerikanischen Eisenbahnen und den
@@ -140,7 +144,7 @@
 
   \section{Striche und Punkte}
     Mit dem Morsecode, manchmal auch Morsealphabet genannt, werden
-    Buchstabend und Ziffern kodiert, sodass sie durch Ein- und Ausschalten
+    Buchstabend und Ziffern codiert, sodass sie durch Ein- und Ausschalten
     eines Signals übertragen werden können.
     Der Morsecode besteht aus den Symbolen
     \begin{compactitem}[\color{maincolor}--]
@@ -161,8 +165,9 @@
     
   \newpage
   
-  \section{Standard-Codetabelle}
+  \section{Codetabelle}
     \begin{minipage}[t]{.25\textwidth}
+      \setlength{\parskip}{.5\baselineskip}
       \subsection{Buchstaben}
       
       \begin{tabular}{ll}
@@ -196,6 +201,7 @@
     \end{minipage}
     \qquad
     \begin{minipage}[t]{.25\textwidth}
+      \setlength{\parskip}{.5\baselineskip}
       \subsection{Ziffern}
 
       \begin{tabular}{ll}
@@ -213,6 +219,7 @@
     \end{minipage}
     \qquad
     \begin{minipage}[t]{.3\textwidth}
+      \setlength{\parskip}{.5\baselineskip}
       \subsection{Satzzeichen}
 
       \begin{tabular}{lll}
@@ -235,7 +242,8 @@
     \vfill
     
     \hfill
-    \begin{minipage}{8cm}
+    \begin{minipage}[t]{8cm}
+      \setlength{\parskip}{.5\baselineskip}
       \pgfimage[width=8cm]{key}
       \scriptsize\color{gray}
       \copyright\ Wikipedia-Benutzer Hgrobe/gallery/2008,
@@ -247,7 +255,7 @@
     
     \section{Dichotomischer Suchbaum}
     
-    Mit dem folgenden Suchbaum kann Morsecode leicht dekodiert werden:
+    Mit dem folgenden Suchbaum kann Morsecode leicht decodiert werden:
     Man beginnt am Startknoben auf der linken Seite
     und wechselt für jeden Strich
     zum oberen Kindknoten (gestrichelte Kante)
@@ -371,6 +379,88 @@
     
     \section{Übertragungsrate}
     
-    \section{Kontakt zum Ortsverband Uetersen M21}
+    Die Übertragungsrate von Morsecode wird Buchstaben pro Minute (BpM) bzw.
+    auf Englisch Character per Minute (CpM) oder
+    Wörtern pro Minute (WpM) bzw. Words per Minute (WpM) gemessen.
+    Um auf normierte Ergebnisse zu kommen, wird das Word PARIS (in Morsecode
+    \mbox{\dit\dah\dah\dit} \mbox{\dit\dah} \mbox{\dit\dah\dit}
+    \mbox{\dit\dit} \mbox{\dit\dit\dit})
+    verwendet, da dieses einem durchschnittlichen Wort aus langen und kurzen
+    Buchstaben entspricht, aus 5 Buchstaben besteht und
+    der Morsecode umgerechnet genau eine Länge von 50 Punkten hat.
+    
+    Die Schwierigkeit beim Morsen liegt insbesondere darin,
+    Morsecode schnell und sicher zu dekodieren.
+    Anfänger schaffen hier selten Geschwindigkeiten über 5 WpM.
+    Üblich sind Geschwindigkeiten zwischen 10 und 20 WpM. Professionelle
+    Funker schaffen über 50 WpM. Der Weltrekord in Schnelltelegrafie
+    aus dem Jahre 1954 liegt bei 88 WpM.
+    
+    \begin{tabular}{llll}
+      \bfseries WpM & \bfseries BpM & \bfseries Punkt \\
+      5 & 25 & 240 ms \\
+      12 & 60 & 100 ms \\
+      20 & 100 & 60 ms \\
+      50 & 250 & 24 ms \\
+      100 & 500 & 12 ms
+    \end{tabular}
+    
+    \section{DARC OV Uetersen M21}
+    
+    Der Ortsverband Uetersen (M21) im Deutschen Amateur Radio Club~e.\,V.
+    wurde 1960 gegründet. Zur Zeit haben wir ca. 50 Mitglieder.
+
+    Unser OV-Abend findet jeden dritten Dienstag im Monat um 19:30 Uhr
+    statt. Zum Technik-Abend treffen wir uns jeden ersten Dienstag im Monat
+    gegen 19:00 Uhr. Wir treffen uns bei unserer Klubstation im Stadtwerkehaus
+    in Uetersen. Gäste sind immer herzlich Willkommen.
+    
+    \begin{minipage}[t]{.44\textwidth}
+      \setlength{\parskip}{.5\baselineskip}
+      \subsection{Kontaktperson}
+      Hartmut Stonner, DK4LS \\
+      Reeperbahn 10 \\
+      25436 Uetersen \\
+      Telefon: 04122 / 20 36
+      
+      \subsection{OV-Frequenzen}
+      Eine gute Chance uns per Funk zu erreichen
+      besteht auf den folgenden Frequenzen
+      
+      \begin{large}\bfseries
+        \begin{tabular}{ll}
+          2m FM & 145,425 MHz \\
+          70cm FM & 430,100 MHz
+        \end{tabular}
+      \end{large}
+    \end{minipage}
+    \hskip.06\textwidth
+    \begin{minipage}[t]{.5\textwidth}
+      \setlength{\parskip}{.5\baselineskip}
+      \subsection{E-Mail}
+      Im Internet sind wir per E-Mail zu erreichen.
+      Fragen beantworten wir gerne. Wir
+      freuen uns über jede E-Mail an
+      
+      \begin{large}\bfseries
+        \href{mailto:dk0ru@qsl.net}{dk0ru@qsl.net}
+      \end{large}
+      
+      \subsection{Internet}
+      \pgfimage[width=.3\textwidth]{qr-m21-website.pdf}
+      \hskip.03\textwidth
+      \begin{minipage}[t]{.67\textwidth}
+        \setlength{\parskip}{.5\baselineskip}
+        \vskip-6.5em
+        Weitere Informationen, Fotos und Hinweise
+        zu unseren Aktivitäten
+        enthält unsere Website unter
+        
+        \begin{large}\bfseries
+          \href{http://www.darc.de/m21}{www.darc.de/m21}
+        \end{large}
+      \end{minipage}
+    \end{minipage}
+    
 \end{document}
 
