@@ -1,0 +1,376 @@
+\documentclass{scrartcl}
+
+\KOMAoptions{headings=normal,
+             fontsize=9pt,
+             parskip=half,
+             headsepline,
+             twoside,
+             captions=rightbeside,
+             captions=centeredbeside}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+
+\usepackage{geometry}
+\geometry{paper=a5paper,
+          inner=1cm,
+          outer=1cm,
+          top=1cm,
+          bottom=1cm,
+          includehead}
+
+\usepackage[scaled=0.92]{helvet}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{courier}
+\usepackage{xcolor}
+
+\xdefinecolor{darc}{RGB}{6, 155, 212}
+\colorlet{maincolor}{darc}
+
+\setcapindent*{0em}
+
+% do not sumber sections
+\setcounter{secnumdepth}{0}
+
+\setlength\intextsep{10pt plus 2pt minus 2pt}
+
+
+% nicer lists
+\usepackage{paralist}
+
+% header and footer
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot % remove all defaults
+\automark{section} % \automark[<left side>]{<right side>}
+%\ihead[\leftmark \\]{\leftmark \\ \rightmark}
+\ihead{DARC OV Uetersen M21 \textcolor{maincolor}{\bfseries{}|} \textbf{Morsecode}}
+\ohead{\pagemark}
+%% optional arguments of \ihead and \ohead in [] is used at pagestyle plain
+%% (e.g. at starting new chapters.)
+\setkomafont{pagehead}{\scriptsize}
+\setkomafont{pagenumber}{\scriptsize}
+\setheadsepline{1pt}[\color{maincolor}]
+
+\usepackage{hyperref}
+\hypersetup{breaklinks=true,
+            pdfborder={0 0 0},
+            ngerman,
+            pdfhighlight={/N},
+            pdfauthor={Deutscher Amateur Radio Club Ortsverband Uetersen M21},
+            pdftitle={Morsecode}}
+
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+\newcommand{\basicdistance}{3ex}
+\tikzset{
+  every state/.style={
+    inner sep=0pt,
+    minimum width=2.3ex,
+    minimum height=0pt,
+    draw=maincolor,
+    solid,
+    thick,
+    fill=maincolor!18
+  },
+  empty/.style={
+    state,
+    fill=black!9,
+    draw=black!50
+  },
+  every initial by arrow/.style={
+    thick
+  },
+  grow=right,
+  level 1/.style={
+    sibling distance=16*\basicdistance
+  },
+  level 2/.style={
+    sibling distance=8*\basicdistance
+  },
+  level 3/.style={
+    sibling distance=4*\basicdistance
+  },
+  level 4/.style={
+    sibling distance=2*\basicdistance
+  },
+  level 5/.style={
+    sibling distance=\basicdistance
+  },
+  level distance=3em
+}
+
+\newcommand{\dit}{{\LARGE\hskip1pt$\cdot$\hskip1pt}}
+\newcommand{\dah}{{\LARGE\hskip1pt--\hskip1pt}}
+
+\begin{document}
+  \thispagestyle{plain}
+  \begin{center}
+    \large
+  
+    \pgfimage[width=4cm]{darc-logo.pdf}\\
+    Ortsverand Uetersen M21
+    
+    \vskip1em
+    
+    \fontsize{36pt}{36pt}
+    \selectfont
+    \bfseries\color{maincolor} Morsecode
+  \end{center}
+
+  \section{Geschichte}
+    Samuel Morse testete 1837 die erste Morsetaste. Dabei verwendete er
+    einen Code der nur die zehn Ziffern kodieren konnte. Der erste Code, 
+    mit dem auch Buchstabend kodiert werden können, wurde ein Jahr später
+    von Alfred Lewis Vail, einem Mitarbeiter Morses, entwickelt.
+    Dieser Code wurde als Morse Landline Code oder
+    American Morse Code bei amerikanischen Eisenbahnen und den
+    Telegrafenunternehmen bis in die 1960er Jahre eingesetzt.
+    
+    Der heute verwendete Code geht auf Friedrich Clemens Gerke zurück, der 1848
+    zur Inbetriebnahme der elektromagnetischen Telegrafenverbindung zwischen
+    Hamburg und Cuxhaven Vails Code vereinfachte. Dieser Code wurde nach
+    einigen weiteren kleinen Änderungen 1865 auf dem Internationalen
+    Telegraphenkongress in Paris standardisiert und später mit
+    der Einführung der drahtlosen Telegrafie als Internationaler Morsecode
+    von der Internationalen Fernmeldeunion (ITU) genormt.
+
+  \section{Striche und Punkte}
+    Mit dem Morsecode, manchmal auch Morsealphabet genannt, werden
+    Buchstabend und Ziffern kodiert, sodass sie durch Ein- und Ausschalten
+    eines Signals übertragen werden können.
+    Der Morsecode besteht aus den Symbolen
+    \begin{compactitem}[\color{maincolor}--]
+      \item Strich (\dah, gesprochen Dah),
+      \item Punkt (\dit, gesprochen Dit) und
+      \item unterschiedlich langen Pausen.
+    \end{compactitem}  
+    Dabei gilt
+    \begin{compactitem}[\color{maincolor}--]
+      \item Die Länge eines Punktes ist die grundlegende Zeiteinheit.
+      \item Ein Strich ist so lang wie drei Punkte.
+      \item Eine Pause zwischen zwei Symbolen ist so lang wie ein Punkt.
+      \item Eine Pause zwischen zwei Buchstaben des Klartextes ist so lang wie
+        ein Strich.
+      \item Eine Pause zwischen zwei Worten des Klartextes ist so lang wie
+        sieben Punkte.
+    \end{compactitem}
+    
+  \newpage
+  
+  \section{Standard-Codetabelle}
+    \begin{minipage}[t]{.25\textwidth}
+      \subsection{Buchstaben}
+      
+      \begin{tabular}{ll}
+        A & \dit \dah \\
+        B & \dah \dit \dit \dit \\
+        C &	\dah \dit \dah \dit \\
+        D &	\dah \dit \dit \\
+        E &	\dit \\
+        F &	\dit \dit \dah \dit \\
+        G &	\dah \dah \dit \\
+        H &	\dit \dit \dit \dit \\
+        I &	\dit \dit \\
+        J &	\dit \dah \dah \dah \\
+        K &	\dah \dit \dah \\
+        L &	\dit \dah \dit \dit \\
+        M &	\dah \dah \\
+        N &	\dah \dit \\
+        O &	\dah \dah \dah \\
+        P &	\dit \dah \dah \dit \\
+        Q &	\dah \dah \dit \dah \\
+        R &	\dit \dah \dit \\
+        S &	\dit \dit \dit \\
+        T &	\dah \\
+        U &	\dit \dit \dah \\
+        V &	\dit \dit \dit \dah \\
+        W &	\dit \dah \dah \\
+        X &	\dah \dit \dit \dah \\
+        Y	& \dah \dit \dah \dah \\
+        Z &	\dah \dah \dit \dit
+      \end{tabular}
+    \end{minipage}
+    \qquad
+    \begin{minipage}[t]{.25\textwidth}
+      \subsection{Ziffern}
+
+      \begin{tabular}{ll}
+        0 &	\dah \dah \dah \dah \dah \\
+        1	&	\dit \dah \dah \dah \dah \\
+        2	&	\dit \dit \dah \dah \dah \\
+        3	&	\dit \dit \dit \dah \dah \\
+        4	&	\dit \dit \dit \dit \dah \\
+        5	&	\dit \dit \dit \dit \dit \\
+        6	&	\dah \dit \dit \dit \dit \\
+        7	&	\dah \dah \dit \dit \dit \\
+        8	&	\dah \dah \dah \dit \dit \\
+        9	&	\dah \dah \dah \dah \dit
+      \end{tabular}
+    \end{minipage}
+    \qquad
+    \begin{minipage}[t]{.3\textwidth}
+      \subsection{Satzzeichen}
+
+      \begin{tabular}{lll}
+        . & (AAA) &	\dit \dah \dit \dah \dit \dah \\
+        , & (MIM) &	\dah \dah \dit \dit \dah \dah \\
+        : & (OS)  &	\dah \dah \dah \dit \dit \dit \\
+        ; & (NNN) &	\dah \dit \dah \dit \dah \dit \\
+        ? & (IMI) &	\dit \dit \dah \dah \dit \dit \\
+        = & &	\dah \dit \dit \dit \dah \\
+        - & &	\dah \dit \dit \dit \dit \dah \\
+        \_ & (UK) &	\dit \dit \dah \dah \dit \dah \\
+        ( & (KN) &	\dah \dit \dah \dah \dit \\
+        ) & (KK) &	\dah \dit \dah \dah \dit \dah \\
+        + & (AR) &	\dit \dah \dit \dah \dit \\
+        / & (DN) &	\dah \dit \dit \dah \dit \\
+        @ & (AC) &	\dit \dah \dah \dit \dah \dit
+      \end{tabular}
+    \end{minipage}
+    
+    \vfill
+    
+    \hfill
+    \begin{minipage}{8cm}
+      \pgfimage[width=8cm]{key}
+      \scriptsize\color{gray}
+      \copyright\ Wikipedia-Benutzer Hgrobe/gallery/2008,
+        Creative Commons Attribution 3.0 Unported
+    \end{minipage}
+    \hfill\strut
+    
+    \newpage
+    
+    \section{Dichotomischer Suchbaum}
+    
+    Mit dem folgenden Suchbaum kann Morsecode leicht dekodiert werden:
+    Man beginnt am Startknoben auf der linken Seite
+    und wechselt für jeden Strich
+    zum oberen Kindknoten (gestrichelte Kante)
+    und für jeden Punkt zum unteren Kindknoten (gepunktete Kante) bis zum
+    Ende des Codewortes. 
+    
+    \begin{center}
+      \begin{tikzpicture}[thick]
+        \node[state] (start) {}
+           child[dashed] { node[state] {T}
+             child[dashed] { node[state] {M}
+               child[dashed] { node[state] {G}
+                 child[dashed] { node[state] {Q} }
+                 child[dotted] { node[state] {Z}
+                   child { node[coordinate] {} edge from parent[draw=none] }
+                   child[dotted] { node[state] {7}
+                     child { node[coordinate] {} edge from parent[draw=none] }
+                     child[dotted] { node[state] {:} }
+                   }
+                 }
+               }
+               child[dotted] { node[state] {O}
+                 child[dashed] { node[empty] {}
+                   child[dashed] { node[state] {0} }
+                   child[dotted] { node[state] {9} }
+                 }
+                 child[dotted] { node[empty] {}
+                   child[dashed] { node[empty] {}
+                     child[dashed] {node[state] {,}}
+                     child { node[coordinate] {} edge from parent[draw=none] }
+                   }
+                   child[dotted] { node[state] {8} }
+                 }
+               }
+             }
+             child[dotted] { node[state] {N}
+               child[dashed] { node[state] {K}
+                 child[dashed] { node[state] {Y}
+                   child { node[coordinate] {} edge from parent[draw=none] }
+                   child[dotted] { node[state] {(}
+                     child[dashed] { node[state] {)} }
+                     child { node[coordinate] {} edge from parent[draw=none] }
+                   }
+                 }
+                 child[dotted] { node[state] {C}
+                   child[dashed] { node[empty] {}
+                     child { node[coordinate] {} edge from parent[draw=none] }
+                     child[dotted] { node[state] {;} }
+                   }
+                   child { node[coordinate] {} edge from parent[draw=none] }
+                 }
+               }
+               child[dotted] { node[state] {D}
+                 child[dashed] { node[state] {X}
+                   child { node[coordinate] {} edge from parent[draw=none] }
+                   child[dotted] { node[state] {/}
+                     child[dashed] { node[state] {@} }
+                     child { node[coordinate] {} edge from parent[draw=none] }
+                   }
+                 }
+                 child[dotted] { node[state] {B}
+                   child[dashed] { node[state] {=} }
+                   child[dotted] { node[state] {6}
+                     child[dashed] { node[state] {-} }
+                     child { node[coordinate] {} edge from parent[draw=none] }
+                   }
+                 }
+               }
+             }
+           }
+           child[dotted] { node[state] {E}
+             child[dashed] { node[state] {A}
+               child[dashed] { node[state] {W}
+                 child[dashed] { node[state] {J}
+                   child[dashed] { node[state] {1} }
+                   child { node[coordinate] {} edge from parent[draw=none] }
+                 }
+                 child[dotted] { node[state] {P} }
+               }
+               child[dotted] { node[state] {R}
+                 child[dashed] { node[empty] {}
+                   child { node[coordinate] {} edge from parent[draw=none] }
+                   child[dotted] { node[state] {+}
+                     child[dashed] { node[state] {.} }
+                     child { node[coordinate] {} edge from parent[draw=none] }
+                   }
+                 }
+                 child[dotted] { node[state] {L} }
+               }
+             }
+             child[dotted] { node[state] {I}
+               child[dashed] { node[state] {U}
+                 child[dashed] { node[empty] {}
+                   child[dashed] { node[state] {2} }
+                   child[dotted] { node[empty] {}
+                     child[dashed] { node[state] {\_} }
+                     child[dotted] { node[state] {?} }
+                   }
+                 }
+                 child[dotted] { node[state] {F} }
+               }
+               child[dotted] { node[state] {S}
+                 child[dashed] { node[state] {V}
+                   child[dashed] { node[state] {3} }
+                   child { node[coordinate] {} edge from parent[draw=none] }
+                 }
+                 child[dotted] { node[state] {H}
+                   child[dashed] { node[state] {4} }
+                   child[dotted] { node[state] {5} }
+                 }
+               }
+             }
+           };
+        \node[left=1.5em of start] (startlabel) {start};
+        \draw
+          (startlabel) edge[->] (start);
+      \end{tikzpicture}
+    \end{center}
+    
+    \newpage
+    
+    \section{Übertragungsrate}
+    
+    \section{Kontakt zum Ortsverband Uetersen M21}
+\end{document}
+
