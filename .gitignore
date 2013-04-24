@@ -1,3 +1,11 @@
 # Ignore output
 flyer.pdf
 plain.pdf
+
+# Ignore temp files
+*.aux
+*.log
+*.out
+*.fdb_latexmk
+*.fls
+*.bak
