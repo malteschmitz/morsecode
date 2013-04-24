@@ -88,7 +88,7 @@
   every initial by arrow/.style={
     thick
   },
-  grow=right,
+  grow'=right,
   level 1/.style={
     sibling distance=16*\basicdistance
   },
@@ -266,30 +266,30 @@
     
     \hskip5em
     \begin{tikzpicture}[thick]
-      \node[state] (start) {}
+      \node[empty] (start) {}
          child[dashed] { node[state] {T}
            child[dashed] { node[state] {M}
-             child[dashed] { node[state] {G}
-               child[dashed] { node[state] {Q} }
-               child[dotted] { node[state] {Z}
-                 child { node[coordinate] {} edge from parent[draw=none] }
-                 child[dotted] { node[state] {7}
-                   child { node[coordinate] {} edge from parent[draw=none] }
-                   child[dotted] { node[state] {:} }
-                 }
-               }
-             }
              child[dotted] { node[state] {O}
                child[dashed] { node[empty] {}
                  child[dashed] { node[state] {0} }
                  child[dotted] { node[state] {9} }
                }
                child[dotted] { node[empty] {}
+                 child { node[coordinate] {} edge from parent[draw=none] }
+                 child[dotted] { node[state] {8}
+                   child { node[coordinate] {} edge from parent[draw=none] }
+                   child[dotted] { node[state] {:} }
+                 }
+               }
+             }
+             child[dashed] { node[state] {G}
+               child[dashed] { node[state] {Q} }
+               child[dotted] { node[state] {Z}
                  child[dashed] { node[empty] {}
                    child[dashed] {node[state] {,}}
                    child { node[coordinate] {} edge from parent[draw=none] }
                  }
-                 child[dotted] { node[state] {8} }
+                 child[dotted] { node[state] {7} }
                }
              }
            }
@@ -313,10 +313,7 @@
              child[dotted] { node[state] {D}
                child[dashed] { node[state] {X}
                  child { node[coordinate] {} edge from parent[draw=none] }
-                 child[dotted] { node[state] {/}
-                   child[dashed] { node[state] {@} }
-                   child { node[coordinate] {} edge from parent[draw=none] }
-                 }
+                 child[dotted] { node[state] {/} }
                }
                child[dotted] { node[state] {B}
                  child[dashed] { node[state] {=} }
@@ -335,7 +332,13 @@
                  child[dashed] { node[state] {1} }
                  child { node[coordinate] {} edge from parent[draw=none] }
                }
-               child[dotted] { node[state] {P} }
+               child[dotted] { node[state] {P}
+                 child[dashed] { node[empty] {}
+                   child { node[coordinate] {} edge from parent[draw=none] }
+                   child[dotted] { node[state] {@} }
+                 }
+                 child { node[coordinate] {} edge from parent[draw=none] }
+               }
              }
              child[dotted] { node[state] {R}
                child[dashed] { node[empty] {}
