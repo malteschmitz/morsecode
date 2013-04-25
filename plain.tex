@@ -69,7 +69,6 @@
 
 \usepackage{tikz}
 \usetikzlibrary{automata,positioning}
-\newcommand{\basicdistance}{3ex}
 \tikzset{
   every state/.style={
     inner sep=0pt,
@@ -89,20 +88,8 @@
     thick
   },
   grow'=right,
-  level 1/.style={
-    sibling distance=16*\basicdistance
-  },
-  level 2/.style={
-    sibling distance=8*\basicdistance
-  },
-  level 3/.style={
-    sibling distance=4*\basicdistance
-  },
-  level 4/.style={
-    sibling distance=2*\basicdistance
-  },
-  level 5/.style={
-    sibling distance=\basicdistance
+  level/.style={
+    sibling distance={2^max(5-#1,0)*3ex}
   },
   level distance=3.5em
 }
