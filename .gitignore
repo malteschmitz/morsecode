@@ -9,3 +9,4 @@ plain.pdf
 *.fdb_latexmk
 *.fls
 *.bak
+*.synctex.gz
